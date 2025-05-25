@@ -3,6 +3,8 @@ from constants import *
 
 
 class ScoreManager:
+    """Class quản lý điểm số"""
+    
     def __init__(self):
         self.score = 0
         self.high_score = self.load_high_score()

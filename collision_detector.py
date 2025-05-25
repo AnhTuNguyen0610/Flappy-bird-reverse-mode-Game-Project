@@ -1,5 +1,6 @@
 
 class CollisionDetector:
+    """Class kiểm tra va chạm"""
     
     @staticmethod
     def check_collision(bird, pipe, ground_y):

@@ -1,3 +1,4 @@
+"""Các hằng số trong game"""
 
 WIDTH, HEIGHT = 500, 700
 WHITE = (255, 255, 255)

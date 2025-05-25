@@ -1,6 +1,8 @@
 from constants import *
 
 class GameStateManager:
+    """Class quản lý trạng thái game"""
+    
     def __init__(self):
         self.state = MENU
     
