@@ -1,6 +1,7 @@
 from constants import *
 
 class Ground:
+    """Class quản lý mặt đất"""
     
     def __init__(self, assets):
         self.y = HEIGHT - 100

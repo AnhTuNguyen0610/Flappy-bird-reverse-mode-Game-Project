@@ -6,6 +6,8 @@ from constants import *
 
 
 class Bird:
+    """Class quản lý chim"""
+    
     def __init__(self, x, y, assets):
         self.x = x
         self.y = y

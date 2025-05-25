@@ -4,6 +4,7 @@ from constants import *
 
 
 class AssetManager:
+    """Quản lý tất cả assets của game"""
     
     def __init__(self):
         self.ensure_assets_folder()

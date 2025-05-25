@@ -3,6 +3,7 @@ import random
 from constants import *
 
 class Cloud:
+    """Class quản lý đám mây"""
     
     def __init__(self, assets):
         self.x = random.randint(0, WIDTH)
