@@ -1,89 +1,91 @@
 # 🐦 Flappy Bird - Reverse Mode
 
-Một phiên bản sáng tạo của trò chơi Flappy Bird: **Thay vì điều khiển chim né ống**, bạn sẽ **điều khiển ống để né chim**!  
-Game được viết bằng Python với thư viện **Pygame**, sử dụng mô hình **Lập trình Hướng Đối Tượng (OOP)** 
+A creative twist on the classic Flappy Bird game: **Instead of controlling the bird to avoid pipes**, you now **control the pipe to avoid incoming birds**!  
+The game is built using Python and the **Pygame** library, following the **Object-Oriented Programming (OOP)** model.
 
+---
 
 ## 🎮 Gameplay
 
-- Nhấn `SPACE` để bắt đầu.
-- Dùng `↑` và `↓` để điều khiển ống di chuyển lên/xuống tránh chim.
-- Nhấn `P` để tạm dừng / tiếp tục.
-- Nhấn `ESC` để thoát.
-- Game tăng độ khó sau mỗi 5 điểm.
-- Điểm cao nhất được lưu lại tự động.
+- Press `SPACE` to start the game.
+- Use `↑` and `↓` arrows to move the pipe up and down to dodge birds.
+- Press `P` to pause/resume the game.
+- Press `ESC` to exit.
+- Game difficulty increases every 5 points.
+- The highest score is automatically saved.
 
 ---
 
-## 🧠 Tính năng nổi bật
+## 🧠 Key Features
 
-- ✅ Tổ chức code rõ ràng theo hướng OOP
-- ✅ Quản lý trạng thái game: Menu, Đang chơi, Tạm dừng, Kết thúc
-- ✅ Hiệu ứng âm thanh khi ghi điểm, va chạm, vỗ cánh
-- ✅ Màn hình nền động với mây và đất
-- ✅ Tăng độ khó theo điểm số
-- ✅ Dễ dàng mở rộng và tùy biến
+- ✅ Well-structured code using OOP principles  
+- ✅ Game state management: Menu, Playing, Paused, Game Over  
+- ✅ Sound effects for flapping, scoring, and collisions  
+- ✅ Animated background with moving clouds and ground  
+- ✅ Dynamic difficulty scaling based on score  
+- ✅ Easily extensible and customizable  
 
 ---
 
-## 🧱 Cấu trúc chương trình
+## 🧱 Project Structure
 
-### `main.py`
-- Điểm khởi đầu của game.
-- Khởi tạo game, vòng lặp chính, điều hướng giữa các trạng thái (menu, chơi, kết thúc, tạm dừng).
+### `main.py`  
+- Entry point of the game.  
+- Initializes the game loop and handles transitions between states (menu, play, pause, game over).
 
-### `constants.py`
-- Chứa các hằng số như kích thước cửa sổ, tốc độ, màu sắc, font, v.v.
+### `constants.py`  
+- Contains global constants like screen size, speed, colors, fonts, etc.
 
-### `assetmanager.py`
-- Tải và quản lý tài nguyên (ảnh, âm thanh, font) một cách tập trung.
+### `assetmanager.py`  
+- Centralized resource loader and manager for images, sounds, and fonts.
 
-### `bird.py`
-- Đại diện cho **chim**.
-- Chim rơi tự do và bay lên theo nhịp cố định.
-- Chim xuất hiện từ bên phải và di chuyển sang trái.
-- Tự động spawn định kỳ và bị xóa khi ra khỏi màn hình.
+### `bird.py`  
+- Represents **birds**.
+- Birds fall and flap at set intervals.
+- Birds spawn on the right and move left.
+- Automatically spawned and removed off-screen.
 
-### `pipe.py`
-- Đại diện cho **ống** do người chơi điều khiển.
-- Có thể di chuyển lên hoặc xuống.
-- Kiểm tra va chạm với chim.
+### `pipe.py`  
+- Represents the **player-controlled pipe**.
+- Can move up and down.
+- Detects collisions with birds.
 
-### `ground.py` & `cloud.py`
-- Tạo hiệu ứng nền (đất và mây) để tăng tính trực quan và sinh động.
-- Tự cuộn theo thời gian tạo cảm giác chuyển động.
+### `ground.py` & `cloud.py`  
+- Create dynamic visual effects for ground and clouds.
+- Scroll to simulate motion.
 
-### `score_manager.py`
-- Theo dõi điểm hiện tại và điểm cao nhất.
-- Tăng điểm khi né chim thành công.
-- Lưu điểm cao nhất vào file `high_score.txt`.
+### `score_manager.py`  
+- Tracks current and high scores.
+- Increases score when birds are successfully dodged.
+- Saves high score to `high_score.txt`.
 
-### `stage_manager.py`
-- Quản lý trạng thái tổng thể của game:
+### `stage_manager.py`  
+- Manages overall game state:
   - `menu`, `playing`, `paused`, `game_over`
-- Cho phép chuyển trạng thái dễ dàng.
+- Enables easy switching between game states.
 
-### `collision_detector.py`
-- Kiểm tra va chạm giữa ống và chim.
-- Nếu có va chạm → chuyển sang trạng thái kết thúc.
+### `collision_detector.py`  
+- Handles collision detection between the pipe and birds.
+- On collision → triggers Game Over state.
 
 ---
 
-## 📁 Cấu trúc thư mục
+## 📁 Directory Structure
 
 ```bash
 flappy-bird-reverse/
-├── assets/                # Hình ảnh
-├── sound/                 # Âm thanh
-├── bird.py                # Chim (đối tượng chuyển động cần tránh)
-├── pipe.py                # Ống (người chơi điều khiển)
-├── cloud.py               # Mây (trang trí nền)
-├── ground.py              # Đất (hiệu ứng nền)
-├── score_manager.py       # Quản lý điểm
-├── stage_manager.py       # Quản lý trạng thái game
-├── collision_detector.py  # Xử lý va chạm
-├── assetmanager.py        # Tải và lưu tài nguyên
-├── constants.py           # Các hằng số toàn cục
-├── main.py                # Vòng lặp chính của game
-├── high_score.txt         # File lưu điểm cao
+├── assets/                # Image assets
+├── sound/                 # Sound effects
+├── bird.py                # Bird (enemy objects to dodge)
+├── pipe.py                # Pipe (controlled by player)
+├── cloud.py               # Clouds (background decoration)
+├── ground.py              # Ground (scrolling effect)
+├── score_manager.py       # Score tracking
+├── stage_manager.py       # Game state control
+├── collision_detector.py  # Collision detection logic
+├── assetmanager.py        # Asset loader
+├── constants.py           # Global constants
+├── main.py                # Main game loop
+├── high_score.txt         # Stores the high score
 └── README.md
+
